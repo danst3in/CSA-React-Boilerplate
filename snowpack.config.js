@@ -9,12 +9,12 @@ module.exports = {
   plugins: [
     /* ... */
     ["@snowpack/plugin-react-refresh"],
-    /* eslint troubleshooting - https://github.com/snowpackjs/snowpack/discussions/2147 */
     [
       "@snowpack/plugin-run-script",
       {
-        cmd: 'eslint "src/**/*.{js,jsx}"',
-        watch: 'watch "$1" src',
+        cmd: "eslint src --ext .js,jsx,.ts,.tsx",
+        // Optional: Use npm package "eslint-watch" to run on every file change
+        watch: "esw -w --clear src --ext .js,jsx,.ts,.tsx",
       },
     ],
   ],
